@@ -6,13 +6,13 @@
 #    By: tjans <tjans@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/02 20:27:53 by tjans         #+#    #+#                  #
-#    Updated: 2019/12/02 21:54:12 by tjans         ########   odam.nl          #
+#    Updated: 2019/12/02 22:13:26 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 AC_PREREQ([2.69])
 AC_INIT([printf_supertest], [1.0.0])
-AM_INIT_AUTOMAKE([-Wall -Werror])
+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AM_SILENT_RULES([yes])
 AC_PREFIX_DEFAULT("./out")
 AC_PROG_CC
