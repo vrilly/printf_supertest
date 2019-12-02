@@ -1,0 +1,30 @@
+You need autotools to install from git.
+Find ready to use packages in /sgoinfre/tjans or on github releases page
+
+Compilation steps:
+
+[*] Configure your project
+
+	Normally you would ./configure and it would work if your ftprintf is
+	in your library search path. But it's probably not.
+	To fix this, use the set_printf_path.sh script with the location of
+	your printf as parameter and the test will be configured.
+
+	You need to compile your libs first before compiling the test.
+
+	If you have libft supplied the library file needs to be in your
+	project root OR in the libft subdirectory of your project root
+	The configure script will automatically link libft too if needed.
+
+[*] Compile the tests
+
+	Use make. Thats all you need to do.
+
+[*] Run the tests
+
+	You get 2 binaries, printer_std and printer_ft
+	Soon i'll add a full test program
+	For now you'll have to execute them both, redirect the output
+	to text files and diff them.
+
+Good luck.
