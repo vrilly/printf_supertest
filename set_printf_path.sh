@@ -1,20 +1,17 @@
+#!/bin/sh
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile.am                                        :+:    :+:             #
+#    set_printf_path.sh                                 :+:    :+:             #
 #                                                      +:+                     #
 #    By: tjans <tjans@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
-#    Created: 2019/12/02 21:16:07 by tjans         #+#    #+#                  #
-#    Updated: 2019/12/02 21:39:49 by tjans         ########   odam.nl          #
+#    Created: 2019/12/02 21:33:20 by tjans         #+#    #+#                  #
+#    Updated: 2019/12/02 21:33:20 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-bin_PROGRAMS = printer_std printer_ft
-
-printer_std_SOURCES = printer.c
-
-printer_ft_SOURCES = printer.c
-printer_ft_CFLAGS = -D PRINTF_FT
-
-dist_doc_DATA = README
+export LDFLAGS="-L$1"
+[ -d "$1/libft" ] && export LDFLAGS="$LDFLAGS -L$1/libft"
+echo $LDFLAGS
+./configure
