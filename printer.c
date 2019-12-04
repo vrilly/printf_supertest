@@ -6,10 +6,11 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:37:59 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/04 14:10:16 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/04 14:25:50 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define _GNU_SOURCE
 #include <stdarg.h>
 #include <stdio.h>
 #include <limits.h>
