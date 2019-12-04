@@ -21,6 +21,10 @@ AC_CHECK_LIB([ftprintf], [ft_printf], [], [
 			  echo "Please use set_printf_path.sh";
 			  exit 0;
 			  ])
+AC_CHECK_PROG([LEAKS_AVALIABLE],[leaks], [yes])
+AS_IF([test "x$LEAKS_AVALIABLE" = yes],
+      [AC_DEFINE([LEAKS_AVALIABLE], [1],
+		 ["Define to 1 if leaks is avaliable"])])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
