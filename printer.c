@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:37:59 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/02 21:02:14 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/04 14:10:16 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "config.h"
 
 int			ft_printf(const char *fmt, ...);
@@ -255,6 +256,28 @@ static void	test_string()
 	free(fmt);
 }
 
+#ifdef LEAKS_AVALIABLE
+static void	test_leaks()
+{
+	pid_t	pid;
+	FILE	*p_leaks;
+	char	*s_leaks;
+	char	buff[2000];
+
+	pid = getpid();
+	printf("\n\n$LEAKCHECK MACOS\nPID: %d\n", pid);
+	asprintf(&s_leaks, "leaks -quiet %d", pid);
+	p_leaks = popen(s_leaks, "r");
+	while (fgets(buff, 2000, p_leaks))
+		printf("%s", buff);
+	if (pclose(p_leaks) > 0)
+		printf("\nLEAK CHECK FAILED\n");
+	else
+		printf("\nNO MEMLEAKS\n");
+	free(s_leaks);
+}
+#endif
+
 int main(int argc, char *argv[])
 {
 	setbuf(stdout, NULL);
@@ -271,6 +294,9 @@ int main(int argc, char *argv[])
 	test_ptr();
 	test_char();
 	test_string();
+	#ifdef LEAKS_AVALIABLE
+		test_leaks();
+	#endif
 	printf("\n\nFin.\n");
 	return 0;
 }
