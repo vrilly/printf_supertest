@@ -6,7 +6,7 @@
 #    By: tjans <tjans@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/02 20:27:53 by tjans         #+#    #+#                  #
-#    Updated: 2019/12/02 22:13:26 by tjans         ########   odam.nl          #
+#    Updated: 2019/12/04 13:49:51 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ AC_CHECK_LIB([ftprintf], [ft_printf], [], [
 			  exit 0;
 			  ])
 AC_CHECK_PROG([LEAKS_AVALIABLE],[leaks], [yes])
-AS_IF([test "x$LEAKS_AVALIABLE" = yes],
+AS_IF([test "x$LEAKS_AVALIABLE" = xyes],
       [AC_DEFINE([LEAKS_AVALIABLE], [1],
-		 ["Define to 1 if leaks is avaliable"])])
+				 ["Define LEAKS_AVALIABLE when leaks is present"])])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
