@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:37:59 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/04 16:59:53 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/04 17:33:46 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,11 +189,10 @@ static void	test_escape()
 static void test_ptr()
 {
 
-	const void	*ptrs[4] =
+	const void	*ptrs[3] =
 	{
-		pf_ptr,
-		(void*)"string",
 		(void*)ULONG_MAX,
+		(void*)88247,
 		NULL
 	};
 	char		*fmt;
@@ -202,7 +201,7 @@ static void test_ptr()
 	fmt = NULL;
 	printf("\n\n$POINTER\n\n");
 	i = 0;
-	while (i < 4)
+	while (i < 3)
 	{
 		while (parrot_shuffler(&fmt, 'p'))
 		{
