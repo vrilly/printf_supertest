@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:37:59 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/04 14:25:50 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/04 16:59:53 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	parrot_shuffler(char **fmt, char c)
 		"Hello world %%%c",
 		"%%%cMerp",
 		"OvO%%%cOwO",
-		"Really long string with a %%%c conversion but not \n really long tbh",
+		"Really long string with a %%%c conversion but not really long tbh",
 		"No conversions in here mate",
 		"Flag test %%.14%c",
 		"Flag test %%-.8%c",
