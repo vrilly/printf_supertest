@@ -6,7 +6,7 @@
 #    By: tjans <tjans@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/12/02 21:16:07 by tjans         #+#    #+#                  #
-#    Updated: 2019/12/04 13:44:19 by tjans         ########   odam.nl          #
+#    Updated: 2019/12/04 13:53:18 by tjans         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,4 +18,4 @@ printer_ft_SOURCES = printer.c
 printer_ft_CFLAGS = -D PRINTF_FT
 
 dist_bin_SCRIPTS = set_printf_path.sh
-dist_doc_DATA = README
+dist_doc_DATA = README a.txt
