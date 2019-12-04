@@ -22,9 +22,16 @@ Compilation steps:
 
 [*] Run the tests
 
-	You get 2 binaries, printer_std and printer_ft
-	Soon i'll add a full test program
-	For now you'll have to execute them both, redirect the output
-	to text files and diff them.
+	After compiling run test_ftprintf
+	If you have many errors you can redirect the output to a file
+	and conveniently filter it at your own pace.
+	On stdout it only outputs the mismatching tests, the output
+	of ALL THE TESTS is stored in test_output.txt.
+
+	The test suite runs all tests and if compiled on MacOS it also
+	automagically runs a memleak test.
+
+	Error handling is shitty. IF your printf fucks up then the testing
+	program will likely segfault on you :)
 
 Good luck.
