@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/04 14:28:48 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/04 17:07:39 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/07 23:55:55 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ void	log_test(t_testprogress *test)
 	char	*logent;
 
 	asprintf(&logent,
-			"\nTest: %s:%s\nret ft:\n%s\nret std:\n%s\n---\n",
+			"\nTest: %s:%s\nret ft(%d):\n%s\nret std(%d):\n%s\n---\n",
 			test->test_section,
 			test->test_fmt,
+			test->rf_ft,
 			test->ret_ft,
+			test->rf_std,
 			test->ret_std);
-	if (strcmp(test->ret_ft, test->ret_std))
+	if (strcmp(test->ret_ft, test->ret_std) || test->rf_ft != test->rf_std)
 		log_msg(logent, 1);
 	else
 		log_msg(logent, 0);
@@ -98,6 +100,8 @@ int		skip_to_test(FILE *fp, char *ret, t_testprogress *tp)
 
 int		run_next_test(t_testprogress *tp)
 {
+	char	atoi_buff[64];
+
 	if (	!skip_to_test(tp->p_ft, tp->ret_ft, tp) ||
 			!skip_to_test(tp->p_std, tp->ret_std, tp))
 		return (0);
@@ -111,6 +115,12 @@ int		run_next_test(t_testprogress *tp)
 		return (0);
 	if (!fgets(tp->ret_std, 5000, tp->p_std))
 		return (0);
+	if (!fgets(atoi_buff, 64, tp->p_ft))
+		return (0);
+	tp->rf_ft = atoi(atoi_buff + 1);
+	if (!fgets(atoi_buff, 64, tp->p_std))
+		return (0);
+	tp->rf_std = atoi(atoi_buff + 1);
 	return (1);
 }
 

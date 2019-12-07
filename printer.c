@@ -6,7 +6,7 @@
 /*   By: tjans <tjans@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/02 18:37:59 by tjans         #+#    #+#                 */
-/*   Updated: 2019/12/04 17:33:46 by tjans         ########   odam.nl         */
+/*   Updated: 2019/12/07 23:50:31 by tjans         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,12 @@ static void	test_signed_int()
 		while(parrot_shuffler(&fmt, 'd'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, test_ints[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, test_ints[i]));
 		}
 		while(parrot_shuffler(&fmt, 'i'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, test_ints[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, test_ints[i]));
 		}
 		i++;
 	}
@@ -128,7 +128,7 @@ static void	test_unsigned_int()
 		while(parrot_shuffler(&fmt, 'u'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, test_ints[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, test_ints[i]));
 		}
 		i++;
 	}
@@ -160,12 +160,12 @@ static void	test_hex()
 		while(parrot_shuffler(&fmt, 'x'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, test_ints[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, test_ints[i]));
 		}
 		while(parrot_shuffler(&fmt, 'X'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, test_ints[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, test_ints[i]));
 		}
 		i++;
 	}
@@ -181,7 +181,7 @@ static void	test_escape()
 	while (parrot_shuffler(&fmt, '%'))
 	{
 		printf("\nfmt: %s\n", fmt);
-		(pf_ptr)(fmt);
+		printf("\n!%d\n", (pf_ptr)(fmt));
 	}
 	free(fmt);
 }
@@ -206,7 +206,7 @@ static void test_ptr()
 		while (parrot_shuffler(&fmt, 'p'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, ptrs[i]);
+			printf("\n!%d\n", (pf_ptr)(fmt, ptrs[i]));
 		}
 		i++;
 	}
@@ -226,14 +226,14 @@ static void	test_char()
 		while (parrot_shuffler(&fmt, 'c'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, c);
+			printf("\n!%d\n", (pf_ptr)(fmt, c));
 		}
 		c++;
 	}
 	while (parrot_shuffler(&fmt, 'c'))
 	{
 		printf("\nfmt: %s\n", fmt);
-		(pf_ptr)(fmt, c);
+		printf("\n!%d\n", (pf_ptr)(fmt, c));
 	}
 	free(fmt);
 }
@@ -251,7 +251,7 @@ static void	test_string()
 		while (parrot_shuffler(&fmt, 's'))
 		{
 			printf("\nfmt: %s\n", fmt);
-			(pf_ptr)(fmt, str);
+			printf("\n!%d\n", (pf_ptr)(fmt, str));
 		}
 	free(fmt);
 }
